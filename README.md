@@ -4,6 +4,11 @@ Make sure to extract <strong>"data.rar"</strong> in this directory
 ```
 Library\PlayerDataCache\Android\Data\ 
 ```
+
+And <strong>"ArtifactDB.rar"</strong> in this directory
+```
+Library\ 
+```
 <br><br>
 #
  <h3>Built in Unity ver. 2020.3.9f1</h3>
