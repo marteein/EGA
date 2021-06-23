@@ -10,6 +10,14 @@ TagManager:
   - MenuMusic
   - setting
   - Trash
+  - DropValid
+  - Daffodil
+  - ShelfSlot
+  - InventorySlot
+  - Canvas
+  - AmountItem
+  - Panel
+  - waterAudio
   layers:
   - Default
   - TransparentFX
@@ -18,7 +26,7 @@ TagManager:
   - Water
   - UI
   - Environment
-  - 
+  - Dragging
   - 
   - 
   - 

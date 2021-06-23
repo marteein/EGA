@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-//This script is for buying from the backyard
 public class Select_Item : MonoBehaviour
 {
     public TMPro.TMP_Text price;
@@ -17,16 +16,11 @@ public class Select_Item : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //this is to get the product type of the buttons and the parent of the buttons
         var prodType = transform.parent.parent.parent;
         var directParent = transform.parent;
+        Debug.Log(directParent);
 
-        //to add listener to button when pressed. function below.
         this.gameObject.GetComponent<Button>().onClick.AddListener(pressedBuy);
-
-        //this for loop is to get the bought product and check if they're placed or select
-        //if placed, all the other sibling from the same parent will set their active status to false
-        //and only the gameobject will remain
         for(int j=0; j<directParent.childCount;j++){
             if(PlayerPrefs.HasKey(prodType+j.ToString())){
                 switch(PlayerPrefs.GetInt(prodType+j.ToString())){
@@ -48,13 +42,9 @@ public class Select_Item : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //this will set the money of the player from the Prefs
         PlayerPrefs.SetFloat("Money",float.Parse(money.GetComponent<TMPro.TextMeshProUGUI>().text));
-
         var prodType = transform.parent.parent.parent;
         var directParent = transform.parent;
-
-        //check if the label is placed or select. store 2 in prefs if placed, 1 for select and 0 for none.
         for(int j=0; j<directParent.childCount;j++){
             if(directParent.gameObject.transform.GetChild(j).transform.GetChild(0).gameObject.GetComponent<TMPro.TextMeshProUGUI>().text == "Placed"){
                 PlayerPrefs.SetInt(prodType+j.ToString(), 2);
@@ -68,7 +58,6 @@ public class Select_Item : MonoBehaviour
         }
     }
 
-    //this function will reduce money and set the bought object's status to active.
     public void pressedBuy(){
         var prodType = transform.parent.parent.parent;
         var directParent = transform.parent;

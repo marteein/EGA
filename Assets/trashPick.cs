@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//this script is for the trash prefabs to spawn at a random location
 public class trashPick : MonoBehaviour
 {
     public GameObject[] trashPrefabs;

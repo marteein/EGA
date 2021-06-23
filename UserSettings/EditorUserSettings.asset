@@ -6,31 +6,34 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedScenePath-0:
-      value: 22424703114646680e0b0227036c6c111b07142f1f2b233e2867083debf42d
+      value: 22424703114646680e0b0227036c781104131d247e66333e243d04
       flags: 0
     RecentlyUsedScenePath-1:
-      value: 22424703114646750c1c1e2304261034131a1739637b02142824127cb1c4103defe805eae2343a722c0ce6281d
+      value: 22424703114646680e0b0227036c781104131d24130a273326301c21e6ae2136ebf32f
       flags: 0
     RecentlyUsedScenePath-2:
-      value: 22424703114646750c1c1e2304261034131a1739637a02142824127cc6e53937b0c378fce9332b25
-      flags: 0
-    RecentlyUsedScenePath-3:
-      value: 22424703114646680e0b0227036c7d11151c012b3e2c68252320092a
-      flags: 0
-    RecentlyUsedScenePath-4:
-      value: 22424703114646680e0b0227036c6c15020311242b66333e243d04
-      flags: 0
-    RecentlyUsedScenePath-5:
-      value: 22424703114646680e0b0227036c70050204112e2966333e243d04
-      flags: 0
-    RecentlyUsedScenePath-6:
       value: 22424703114646680e0b0227036c781104131d24623d28393930
       flags: 0
+    RecentlyUsedScenePath-3:
+      value: 22424703114646680e0b0227036c6c15020311242b66333e243d04
+      flags: 0
+    RecentlyUsedScenePath-4:
+      value: 22424703114646680e0b0227036c70050204112e2965747e38271427fb
+      flags: 0
+    RecentlyUsedScenePath-5:
+      value: 22424703114646680e0b0227036c6c181907563f22213229
+      flags: 0
+    RecentlyUsedScenePath-6:
+      value: 22424703114646680e0b0227036c781104131d24611c3429633c133af6f9
+      flags: 0
     RecentlyUsedScenePath-7:
-      value: 22424703114646680e0b0227036c72151802563f22213229
+      value: 22424703114646680e0b0227036c6b021704106439262f2434
       flags: 0
     RecentlyUsedScenePath-8:
-      value: 22424703114646680e0b0227036c6b021704106439262f2434
+      value: 22424703114646680e0b0227036c70050204112e2966333e243d04
+      flags: 0
+    RecentlyUsedScenePath-9:
+      value: 22424703114646680e0b0227036c72151802563f22213229
       flags: 0
     UnityRemoteDevice:
       value: 2d5e5a03

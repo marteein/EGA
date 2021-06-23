@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class newGameCheck : MonoBehaviour
 {
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
 
     // Update is called once per frame
-
-    //This will set the NewGameOutside prefs to 0 
     void Update()
     {
         PlayerPrefs.SetInt("NewGameOutside", 0);

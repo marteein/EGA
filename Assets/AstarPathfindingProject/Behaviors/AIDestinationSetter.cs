@@ -43,6 +43,7 @@ namespace Pathfinding {
 			
 			if (Input.GetButtonDown("Fire1"))
 			{
+				PlayerPrefs.SetInt("NewGameOutside",0);
 				bool positionFound = false;
 				mouseCount++;
 				newPosition = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -71,10 +72,11 @@ namespace Pathfinding {
 
 		void OnTriggerEnter2D(Collider2D collide){
 			if(collide.gameObject.tag == "Garden"){
-				SceneManager.LoadScene("Garden", LoadSceneMode.Single);
+				SceneManager.LoadScene("Garden-Try", LoadSceneMode.Single);
+				PlayerPrefs.SetInt("Task3",1);
 			}
 			else if(collide.gameObject.tag == "House"){
-				SceneManager.LoadScene("Backyard", LoadSceneMode.Single);
+				SceneManager.LoadScene("Shop", LoadSceneMode.Single);
 			}
 		}
 	}

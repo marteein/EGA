@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//this script is so that the audio source will not be destroyed
-//when moving/changing from scene to scene
 public class SoundFX : MonoBehaviour
 {
     static SoundFX instance = null;

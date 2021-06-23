@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//this script will open the shop menu per item when the object or the plus symbol is pressed
 public class ShopMenu : MonoBehaviour
 {
     public Animator animator_menu;
@@ -18,14 +17,7 @@ public class ShopMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //this will set the backyard new gamers to no
         PlayerPrefs.SetInt("NewGameBackyard",0);
-
-        //when the player hits the screen, it will check the position of the mouse
-        //if the player hit a Raycast2D with a collider on them, it will check its name
-        //wether it is the name of the button for adding a product or not,
-        //if so, then the animation will take place and the player can click on the items they
-        //want to buy
         if (Input.GetMouseButtonDown(0)) {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);

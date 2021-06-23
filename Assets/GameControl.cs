@@ -8,7 +8,6 @@ public class GameControl : MonoBehaviour
     public static GameControl control;
     public float money;
     GameObject Money1;
-    //Not being used but safe not to delete.
     // Start is called before the first frame update
     void Awake()
     {

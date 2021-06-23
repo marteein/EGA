@@ -7,11 +7,10 @@ using UnityEngine.SceneManagement;
 public class settingsScript : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject panel;
     void Start()
     {
-        //will get the audio source
         AudioSource audioSrc = GameObject.Find("Audio Source").GetComponent<AudioSource> ();
-        //check if audio source is playing. it will change the toggle image depending on the condition
         if(audioSrc.isPlaying){
             this.gameObject.GetComponent<Toggle>().isOn=true;
         }
@@ -26,30 +25,23 @@ public class settingsScript : MonoBehaviour
         
     }
 
-    //will load Setting scene
     public void loadSetting(){
         SceneManager.LoadScene("Setting", LoadSceneMode.Additive);
     }
 
-    //will load trash scene
     public void loadTrash(){
         SceneManager.LoadScene("Trash", LoadSceneMode.Single);
     }
 
-    //will load Outside scene
     public void loadOutside(){
         SceneManager.LoadScene("Outside", LoadSceneMode.Single);
     }
 
-    //will load Menu Scene
     public void loadMenu(){
         SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
 
-    //When toggle is changed, this function will start
     public void music_off(){
-        //when toggle is not set to On, the audio source will be paused. 
-        //if the toggle is set to On, the audio source will play
         if(!this.gameObject.GetComponent<Toggle>().isOn){
             AudioSource audioSrc = GameObject.Find("Audio Source").GetComponent<AudioSource> ();
             audioSrc.Pause ();
@@ -59,5 +51,13 @@ public class settingsScript : MonoBehaviour
             audioSrc.Play ();
         }
         
+    }
+
+    public void openHelp(){
+        panel.gameObject.SetActive(true);
+    }
+
+    public void closeHelp(){
+        panel.gameObject.SetActive(false);
     }
 }

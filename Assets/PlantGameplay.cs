@@ -17,6 +17,7 @@ public class PlantGameplay : MonoBehaviour
     public TMPro.TMP_Text SellText;
     public TMPro.TMP_Text PlantText;
     public GameObject Plant;
+    public GameObject Prefab_Plant;
     [SerializeField] 
     private TMPro.TMP_Text level;
     public TMPro.TMP_Text Money;
@@ -26,25 +27,21 @@ public class PlantGameplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //will set all the buttons each plant to false except the Plant button
         PlantButton.SetActive(true);
         WaterButton.SetActive(false);
         FertilizeButton.SetActive(false);
         PesticideButton.SetActive(false);
         SellButton.SetActive(false);
 
-        //this part will get the money and add the trashmoney to it
         PlayerPrefs.SetFloat("Money",PlayerPrefs.GetFloat("Money")+PlayerPrefs.GetFloat("TrashMoney"));
         Debug.Log(PlayerPrefs.GetFloat("TrashMoney"));
 
-        //this part will add a listener to the buttons. the function is below
         PlantButton.GetComponent<Button>().onClick.AddListener(pressedPlant);
         WaterButton.GetComponent<Button>().onClick.AddListener(pressedWater);
         FertilizeButton.GetComponent<Button>().onClick.AddListener(pressedFertilize);
         PesticideButton.GetComponent<Button>().onClick.AddListener(pressedPesticide);
         SellButton.GetComponent<Button>().onClick.AddListener(pressedSell);
 
-        //this will check if there is a Pref for all the plants for the buttons
         if(PlayerPrefs.HasKey("Daffodil")||PlayerPrefs.HasKey("Globe")||PlayerPrefs.HasKey("Calla")||
         PlayerPrefs.HasKey("Crown")||PlayerPrefs.HasKey("Daisy")||PlayerPrefs.HasKey("Echinacea")||
         PlayerPrefs.HasKey("French")||PlayerPrefs.HasKey("Garden")||PlayerPrefs.HasKey("Hyacinth")||
@@ -52,8 +49,6 @@ public class PlantGameplay : MonoBehaviour
             hasPlant = true;
         }
 
-        //this if statement will check if hasPlant is true and then
-        //it will set the text of Level depending on the value of the Prefs
         if(hasPlant){
             switch(Plant.name){
                 case "Daffodil": 
@@ -170,17 +165,10 @@ public class PlantGameplay : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        //When entering the garden, the trashmoney will be reset to 0
         PlayerPrefs.SetFloat("TrashMoney",0);
-
-        //this will set the money text to the prefs of money
         float money1 = int.Parse(Money.text);  
         PlayerPrefs.SetFloat("Money",money1);
-
-        //timer for coins
         timer = timer + Time.deltaTime;
-
-        //this switch statement will change the plantText and SellText depending on the Plant
         switch(Plant.name){
             case "Daffodil": 
                 PlantText.text = "Plant for 20 php";
@@ -232,10 +220,7 @@ public class PlantGameplay : MonoBehaviour
                 break;
         }
         
-        //This if statement will check if the plant is active as a GameObject or if hasplant is true
-        //when condition is met, it will get the switch statement per plant and
-        //each plant will have another if statement to check if the level and Prefs. if conditions are met, depending on what the conditions are,
-        //the plant will be active, the buttons will be active depending on the condition, the coin per second will update depending on the conditions.
+        
         if(Plant.activeSelf == true || hasPlant == true){
             switch(Plant.name){
                 case "Daffodil": 
@@ -244,8 +229,6 @@ public class PlantGameplay : MonoBehaviour
                         WaterButton.SetActive(true);
                         PlantButton.SetActive(false);
                         if(timer>=2){
-                            //this part will instantiate a coin prefab everytime the timer reaches a certain number. Coin will be parented to the plant
-                            //and the coin will be destroyed after 1 second. after the timer is reached, it will reset to 0
                             GameObject add_coin = Instantiate(coin_add_Prefab, Plant.transform.position , Quaternion.identity) as GameObject;
                             add_coin.transform.parent = Plant.transform;
                             Destroy(add_coin, 1f);
@@ -932,14 +915,10 @@ public class PlantGameplay : MonoBehaviour
         }
     }
 
-    //this function is connected to the Plant button. This will reduce the money from the player,
-    //it will also set the plant object active and set the level to small.
-    //it will also add a Pref to save the state of the plant when the game is exited
     public void pressedPlant(){
         int money1 = int.Parse(Money.text);
         switch (Plant.name){
             case "Daffodil": 
-                //this will check if the player has enough money to buy the plant
                 if(money1>=20){
                     money1 = money1-20;
                     Plant.SetActive(true);
@@ -948,7 +927,6 @@ public class PlantGameplay : MonoBehaviour
                     level.text = "Small";
                     PlayerPrefs.SetInt("Daffodil", 1);
                 }
-                //this will show an error when the player doesn't have enough money
                 else{
                     GameObject poor = Instantiate(noMoney_Prefab, new Vector3(150, -350, 0), Quaternion.identity) as GameObject;
                     poor.transform.parent = PlantButton.transform;
@@ -1126,7 +1104,6 @@ public class PlantGameplay : MonoBehaviour
         
     }
 
-    //this function is the same as the pressedPlant()
     public void pressedWater(){ 
         int money1 = int.Parse(Money.text);
         if(money1>=10){
@@ -1143,7 +1120,6 @@ public class PlantGameplay : MonoBehaviour
         Money.text = money1.ToString();
     }
 
-    //this function is the same as the pressedPlant()
     public void pressedFertilize(){
         int money1 = int.Parse(Money.text);
         if(money1>=10){
@@ -1160,7 +1136,6 @@ public class PlantGameplay : MonoBehaviour
         Money.text = money1.ToString();
     }
 
-    //this function is the same as the pressedPlant()
     public void pressedPesticide(){
         int money1 = int.Parse(Money.text);
         if(money1>=10){
@@ -1177,8 +1152,6 @@ public class PlantGameplay : MonoBehaviour
         Money.text = money1.ToString();
     }
 
-    //this function will add money when the sell button is pressed
-    //the formula is out of the blue and not calculated thoroughly.
     public void pressedSell(){
         SellButton.SetActive(false);
         PlantButton.SetActive(true);
@@ -1237,4 +1210,10 @@ public class PlantGameplay : MonoBehaviour
         Money.text = money1.ToString();
         Plant.SetActive(false);
     }
+
+    public void spawnPlant(){
+
+    }
+
+
 }
